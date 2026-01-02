@@ -3,22 +3,22 @@
 }
 
 html {
-  --primary-color: #fa5d0f;
-  --secondary-color: #ffce27;
-  --tertiary-color: #d13405;
+  --primary-color: #e7502c;
+  --secondary-color: #89d154;
+  --tertiary-color: #39a7e8;
   --code-header-color: #a8a8a8;
   --code-background-color: #f8f8f8;
-  --grey: #eee;
+  --grey: #666;
   --dark-grey: #444;
-  --app-section-even-color: #fff;
-  --app-section-odd-color: var(--grey);
+  --app-section-even-color: #2c2f33;
+  --app-section-odd-color: #2c2f33;
   --border-radius: 5px;
-  --content-width: 600px;
+  --content-width: 1100px;
   --text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
   font-size: 18px;
   line-height: 2rem;
-  color: rgba(0, 0, 0, 0.8);
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #e0e6ed;
+  font-family: "Inter", sans-serif;
   margin: 0;
   padding: 0;
 }
