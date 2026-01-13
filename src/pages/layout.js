@@ -14,7 +14,6 @@ export default context => html`
   </head>
   <body>
     ${header(context.root.data.title)}
-    ${nav(context.path, context.root)}
     <main>
       ${context.page.html}
     </main>

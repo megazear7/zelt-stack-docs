@@ -4,10 +4,10 @@
 
 html {
   --primary-color: #e7502c;
-  --secondary-color: #89d154;
+  --secondary-color: #0d5b4b;
   --tertiary-color: #39a7e8;
   --code-header-color: #a8a8a8;
-  --code-background-color: #f8f8f8;
+  --code-background-color: #53565b;
   --grey: #666;
   --dark-grey: #444;
   --app-section-even-color: #2c2f33;
@@ -34,6 +34,7 @@ h1 {
   font-weight: 500;
   color: var(--tertiary-color);
   text-shadow: var(--text-shadow);
+  margin: 1rem 0 0.5rem 0;
 }
 
 h2 {
@@ -42,15 +43,18 @@ h2 {
   font-weight: 400;
   color: var(--primary-color);
   text-shadow: var(--text-shadow);
+  border-bottom: 1px solid var(--primary-color);
+  padding: 0 0 0.5rem 0;
+  margin: 2.5rem 0 1rem 0;
 }
 
 h3 {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   line-height: 1;
   font-weight: 300;
   letter-spacing: 2px;
-  color: var(--tertiary-color);
   text-shadow: var(--text-shadow);
+  margin: 1.75rem 0 0 0;
 }
 
 h4 {
@@ -64,15 +68,14 @@ h4 {
 }
 
 h5 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   line-height: 1;
   font-weight: 300;
-  color: var(--tertiary-color);
   text-shadow: var(--text-shadow);
 }
 
 h6 {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   line-height: 1;
   font-weight: 300;
   letter-spacing: 2px;
@@ -82,6 +85,20 @@ h6 {
 
 p {
   font-size: 1rem;
+}
+
+a {
+  color: var(--tertiary-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-color);
+}
+
+ul {
+  margin: 0.5rem 0 0 0;
 }
 
 main p {
@@ -105,7 +122,7 @@ section > *, footer > *, header > *, nav > * {
 
 p code, ul code, li code {
   padding: 3px;
-  color: #333;
+  color: #ddd;
   background-color: var(--code-background-color);
   border-radius: 5px;
 }
@@ -118,6 +135,9 @@ header {
   padding: 1rem;
   border-top: 3px solid var(--primary-color);
   background-color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 footer {
