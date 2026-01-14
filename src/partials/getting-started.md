@@ -19,10 +19,10 @@ and provides additional features like:
 
 ## Shared
 
-The Shared layer in the zelt-stack-template serves as a central hub for code that can be utilized by both the client and server sides, ensuring consistency and reusability across the application. It includes types, services, utilities, and prompts that are defined once and imported wherever needed, promoting a unified architecture. This layer leverages Zod for validation and TypeScript for strong typing, allowing seamless data flow between frontend and backend.
+The shared layer in the zelt-stack-template acts as a central hub for code used by both the client and server, promoting consistency and reusability. It includes types, services, utilities, and prompts defined once and imported as needed, creating a unified architecture. This layer uses Zod for validation and TypeScript for strong typing, enabling smooth data flow between frontend and backend.
 
 ### Shared Types
-Shared Types in the zelt-stack-template define the data structures and schemas using Zod, which are used for runtime validation and TypeScript type inference throughout the application. They are grouped by functionality and stored in files like `type.<type-name>.ts`, ensuring that both client and server code operate with the same validated data models. This approach prevents type mismatches and enforces data integrity across the stack.
+Shared types in the zelt-stack-template define data structures and schemas with Zod for runtime validation and TypeScript type inference. Grouped by functionality in files like `type.<type-name>.ts`, they ensure client and server code work with the same validated data models. This prevents type mismatches and maintains data integrity across the stack.
 
 ```typescript
 import z from "zod";
@@ -34,7 +34,7 @@ export type Health = z.infer<typeof Health>;
 ```
 
 ### Shared Services
-Shared Services in the zelt-stack-template abstract API communication by defining routes, HTTP methods, request/response structures, and validation using Zod schemas from shared types. They handle data fetching and are implemented as classes that can be instantiated and used by both client providers and server controllers. This abstraction simplifies API interactions and ensures type-safe communication between frontend and backend.
+Shared services in the zelt-stack-template abstract API communication by defining routes, HTTP methods, request/response structures, and validation with Zod schemas from shared types. Implemented as classes for data fetching, they can be used by both client providers and server controllers. This abstraction simplifies API interactions and guarantees type-safe communication between frontend and backend.
 
 ```typescript
 import { AbstractService, NoBodyParams, NoPathParams, ServiceType } from "./main.service.js";
@@ -51,7 +51,7 @@ export const healthService = new HealthService(NoBodyParams, NoPathParams, Healt
 ```
 
 ### Shared Utilities
-Shared Utilities in the zelt-stack-template consist of pure functions grouped by functionality, stored in `util.<util-name>.ts` files, that perform common operations without side effects or reliance on environment-specific APIs. They can be imported and used by both client and server code, promoting code reuse and maintaining consistency. Examples include route parameter utilities and time-related functions that work in both browser and Node.js environments.
+Shared utilities in the zelt-stack-template are pure functions grouped by functionality in `util.<util-name>.ts` files. They perform common operations without side effects or environment-specific dependencies, and can be used by both client and server code. This promotes code reuse and consistency, with examples like route parameter helpers and time-related functions that work in both browser and Node.js.
 
 ```typescript
 export const ONE_SECOND_IN_MS = 1000;
@@ -65,7 +65,7 @@ export const ANIMATION_SPEED_IN_MS = 350;
 ```
 
 ### Shared Prompts
-Shared Prompts in the zelt-stack-template are functions defined in `prompt.<prompt-name>.ts` files that return promises of chat completion message arrays, likely for AI model interactions using OpenAI. They encapsulate prompt logic that can be shared between client and server, ensuring consistent AI-driven features. This allows for reusable prompt templates that integrate seamlessly with the application's AI capabilities.
+Shared prompts in the zelt-stack-template are functions in `prompt.<prompt-name>.ts` files that return promises of chat completion message arrays for AI model interactions with OpenAI. They encapsulate prompt logic shared between client and server, ensuring consistent AI-driven features. This enables reusable prompt templates that integrate smoothly with the app's AI capabilities.
 
 ```typescript
 import { ChatCompletionMessageParam } from "openai/resources";
@@ -86,7 +86,7 @@ export const examplePrompt = async (instructions: string): Promise<ChatCompletio
 ```
 
 ### Client Providers
-Client Providers in the zelt-stack-template manage data fetching and state using Lit's context system, extending abstract providers to handle application-wide data like app configuration. They fetch data via shared services and provide typed data to components through context, ensuring reactive updates. This pattern centralizes state management and keeps components focused on UI rendering.
+Client providers in the zelt-stack-template manage data fetching and state with Lit's context system. They extend abstract providers to handle app-wide data like configuration, fetch data via shared services, and provide typed data to components through context for reactive updates. This centralizes state management and lets components focus on UI rendering.
 
 ```typescript
 import { provide } from "@lit/context";
@@ -118,7 +118,7 @@ export abstract class ZeltTemplateAppProvider extends ZeltTemplateAbstractProvid
 ```
 
 ### Client Pages
-Client Pages in the zelt-stack-template are Lit components that extend providers and handle routing, with minimal logic delegated to components for UI capabilities. They are defined in `page.<page-name>.ts` files and are registered in the routes configuration and app's render method. This structure keeps pages lightweight while enabling dynamic navigation and data-driven rendering.
+Client pages in the zelt-stack-template are Lit components that extend providers and handle routing. They keep logic minimal, delegating UI tasks to components, and are defined in `page.<page-name>.ts` files. Registered in the routes config and app's render method, this keeps pages lightweight for dynamic navigation and data-driven rendering.
 
 ```typescript
 import { css, html, TemplateResult } from "lit";
@@ -152,7 +152,7 @@ export class ZeltTemplateHomePage extends ZeltTemplateAppProvider {
 ```
 
 ### Client Components
-Client Components in the zelt-stack-template are reusable Lit elements defined in `component.<component-name>.ts` files that consume context from providers for data and handle user interactions. They focus on UI rendering and can be customized with attributes for general-purpose use. Examples include modals, toasts, and tooltips that enhance the user experience.
+Client components in the zelt-stack-template are reusable Lit elements in `component.<component-name>.ts` files. They consume context from providers for data, handle user interactions, and focus on UI rendering. Customizable with attributes for general use, examples include modals, toasts, and tooltips to improve the user experience.
 
 ```typescript
 import { html, css, LitElement, TemplateResult } from "lit";
@@ -200,8 +200,8 @@ export class ZeltTemplateToast extends LitElement {
 }
 ```
 
-### Client styles
-Client styles in the zelt-stack-template use CSS variables defined in `static/app.css` for consistent theming, avoiding hardcoded values. Global styles are managed in `styles.global.ts`, while component-specific styles are embedded within component files using Lit's static styles property. This approach ensures maintainable, themeable UI across the application.
+### Client Styles
+Client styles in the zelt-stack-template use CSS variables from `static/app.css` for consistent theming without hardcoded values. Global styles live in `styles.global.ts`, and component-specific styles are embedded in component files via Lit's static styles property. This keeps the UI maintainable and easily themeable.
 
 ```typescript
 import { css } from "lit";
@@ -238,7 +238,7 @@ export const globalStyles = css`
 ```
 
 ### Client Events
-Client Events in the zelt-stack-template define custom event types and functions in `event.<event-name>.ts` files, which are aggregated in `util.events.ts` and dispatched using a custom dispatch function. They enable decoupled communication between components, such as modal interactions or navigation events. This event-driven architecture promotes modularity and reactive updates in the frontend.
+Client events in the zelt-stack-template define custom event types and functions in `event.<event-name>.ts` files. Aggregated in `util.events.ts` and dispatched with a custom function, they enable decoupled communication between components—like modal interactions or navigation. This event-driven setup promotes modularity and reactive updates in the frontend.
 
 ```typescript
 import z from "zod";
@@ -263,10 +263,10 @@ export const ModelOpeningEvent = (): ModelOpeningEventData => ({
 
 ## Server
 
-The Server layer in the zelt-stack-template runs on Express and handles API endpoints, data processing, and backend logic using TypeScript and shared types for validation. It processes requests through controllers, utilizes utilities for server-specific operations, and integrates with AI models for advanced features. This layer ensures secure, typed API responses and data persistence.
+The server layer in the zelt-stack-template runs on Express, handling API endpoints, data processing, and backend logic with TypeScript and shared types for validation. It processes requests via controllers, uses utilities for server-specific tasks, and integrates AI models for advanced features. This ensures secure, typed API responses and reliable data persistence.
 
 ### Server Controllers
-Server Controllers in the zelt-stack-template extend an abstract controller class and implement handlers for API endpoints, validating input and output using shared Zod schemas. They are defined in `controller.<controller-name>.ts` files and registered in the main router for Express routing. This structure ensures type-safe request handling and consistent API behavior.
+Server controllers in the zelt-stack-template extend an abstract controller class and implement handlers for API endpoints. They validate input and output with shared Zod schemas, defined in `controller.<controller-name>.ts` files, and register with the main router for Express routing. This ensures type-safe request handling and consistent API behavior.
 
 ```typescript
 import { NoBodyParams, NoPathParams } from "../shared/main.service.js";
@@ -284,7 +284,7 @@ export const healthController = new HealthController(healthService);
 ```
 
 ### Server Utils
-Server Utils in the zelt-stack-template contain functions grouped by functionality in `util.<util-name>.ts` files, specifically for Node.js operations like file system interactions or model processing. They are used by controllers and other server code when environment-specific APIs are required. This keeps server-side logic organized and separate from shared utilities.
+Server utils in the zelt-stack-template contain functions grouped by functionality in `util.<util-name>.ts` files for Node.js operations like file system interactions or model processing. Used by controllers and server code when environment-specific APIs are needed, they keep server-side logic organized and separate from shared utilities.
 
 ```typescript
 import { promises as fs } from "fs";
@@ -299,8 +299,8 @@ export async function fileExists(path: string): Promise<boolean> {
 
 ## Data Persistence
 
-Data Persistence in the zelt-stack-template organizes all application data in a `data` directory, with app data under `data/app/` and book data under `data/books/` in subdirectories with `index.json` files. Each book directory includes audio and references subfolders for related files, all managed through server-side file operations. This structure ensures scalable, file-based data storage with clear organization.
+Data persistence in the zelt-stack-template organizes application data in a `data` directory. App data goes under `data/app/`, and specific data like books under `data/books/`, with subdirectories containing `index.json` files. Each data directory can include subfolders for related files like audio or references, managed via server-side file operations. This provides scalable, file-based storage with clear organization.
 
 ## Development Practices
 
-Development Practices in the zelt-stack-template emphasize automated tooling with `npm run fix` for linting and formatting, `npm run build` for compilation, and `npm start` for development serving. Large changes require work plans in `.github/prompts/work-plan.md` for review, and debugging uses Chrome DevTools sparingly. This workflow promotes code quality, consistency, and efficient development cycles.
+Development in the zelt-stack-template emphasizes automated tooling: `npm run fix` for linting and formatting, `npm run build` for compilation, and `npm start` for development serving. Large changes need work plans in `.github/prompts/work-plan.md` for review, with debugging relying on Chrome DevTools when necessary. This setup promotes code quality, consistency, and efficient development.
