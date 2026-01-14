@@ -240,12 +240,11 @@ li code {
 }
 
 pre {
-  margin-top: 0;
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
   background: var(--code-background-color);
-  border-radius: 0 0 var(--border-radius) var(--border-radius);
-  padding: 1.25em 1.1em;
-  border: 1px solid rgba(255,255,255,0.08);
-  border-top: none;
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(255,255,255,0.1);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
   overflow-x: auto;
 }

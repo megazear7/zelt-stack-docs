@@ -35,7 +35,7 @@ function replacePage(fragmentHtml, path) {
     }
   });
   document.querySelectorAll('pre code').forEach((block) => {
-    hljs.highlightBlock(block);
+    hljs.highlightElement(block);
   });
 }
 
@@ -46,6 +46,10 @@ window.addEventListener('popstate', event => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll('pre code').forEach((block) => {
+    hljs.highlightElement(block);
+  });
+
   document.body.addEventListener('click', event => {
     var tag = event.target;
 
