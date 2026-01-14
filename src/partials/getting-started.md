@@ -1,10 +1,10 @@
 ## Getting Started
 
-The Zelt Stack is
-<strong class="underline">Z</strong>od for type definitions and run time validation,
-<strong class="underline">E</strong>xpress for the api backend,
-<strong class="underline">L</strong>it for the user interface that is lightweight and close to the bare metal of the browser,
-<strong class="underline">T</strong>ypeScript everywhere for consistency and compile time reliability.
+The Zelt Stack includes
+<a href="https://zod.dev/"><strong class="underline">Z</strong>od</a> for type definitions and run time validation,
+<a href="https://expressjs.com/"><strong class="underline">E</strong>xpress</a> for the api backend,
+<a href="https://lit.dev/"><strong class="underline">L</strong>it</a> for the user interface that is lightweight and close to the bare metal of the browser,
+<a href="https://www.typescriptlang.org/"><strong class="underline">T</strong>ypeScript</a> everywhere for consistency and compile time reliability.
 
 
 ## The Zelt Stack Template
