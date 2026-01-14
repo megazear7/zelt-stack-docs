@@ -166,33 +166,11 @@ export class ZeltTemplateToast extends LitElement {
     globalStyles,
     css`
       :host {
-        position: fixed;
-        top: var(--size-large);
-        right: var(--size-large);
-        z-index: 10000;
-        display: none;
-        max-width: 30vw;
         padding: var(--size-medium);
         border-radius: var(--radius-medium);
         box-shadow: var(--shadow-active);
         color: var(--color-primary-text);
         font-size: var(--font-medium);
-      }
-
-      :host([visible]) {
-        display: block;
-      }
-
-      :host([type="error"]) {
-        background-color: var(--color-error);
-      }
-
-      :host([type="warning"]) {
-        background-color: var(--color-warning);
-      }
-
-      :host([type="success"]) {
-        background-color: var(--color-success);
       }
     `,
   ];
