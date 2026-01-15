@@ -5,9 +5,9 @@
 html {
   --primary-color: #ff6a3d;
   --primary-glow: rgba(255, 106, 61, 0.35);
-  --secondary-color: #0e3a47;
+  --secondary-color: #7c311a;
   --secondary-glow: rgba(57, 167, 232, 0.25);
-  --tertiary-color: #39a7e8;
+  --tertiary-color: rgb(24 169 139);
   --accent-color: #8ef6c4;
   --code-header-color: #cdd5e0;
   --code-background-color: #141820;
@@ -96,10 +96,10 @@ h2:after {
   width: 80px;
   height: 4px;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--primary-color), var(--tertiary-color));
+  background: var(--secondary-color);
   box-shadow: 0 0 15px var(--primary-glow);
   position: relative;
-  top: 3px;
+  top: 3.5px;
 }
 
 h3 {
@@ -110,7 +110,7 @@ h3 {
   text-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
   margin: 1.5rem 0 0.7rem 0;
   text-transform: uppercase;
-  border-bottom: 1px solid var(--primary-color);
+  border-bottom: 2px solid var(--secondary-color);
   line-height: 1.4rem;
   padding: 0 0 0.35rem 0;
 }
