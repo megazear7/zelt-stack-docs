@@ -1,3 +1,6 @@
 {
-  "title": "Zelt Stack"
+  "title": "Zelt Stack",
+  "shortTitle": "Zelt",
+  "description": "The Zelt Stack is a web development stack that uses Zod, Express, Lit, and TypeScript.",
+  "primaryColor": "#fa5d0f"
 }
