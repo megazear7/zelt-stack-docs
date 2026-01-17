@@ -27,6 +27,7 @@ rename the application and install the dependencies, and then you are ready to g
 ```sh
 git clone --depth=1 git@github.com:megazear7/zelt-stack-template.git my-cool-project
 cd my-cool-project
+rm -rf .git
 node rename.js my-cool-project
 git init
 nvm use 22
